@@ -14,7 +14,7 @@ it as a command, either with a range like `:7,17Commentary`, or as part of a
 It uncomments, too.  The above maps actually toggle, and `gcgc`
 uncomments a set of adjacent commented lines.
 
-With this version, you can define g:space_after_commentstring to 1 or 0 to control whether
+With this version, you can define `g:space_after_commentstring` to `1` or `0` to control whether
 a space is inserted after the commentstring or not. It is the only difference.
 
 ## Installation
