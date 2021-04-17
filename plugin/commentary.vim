@@ -8,10 +8,17 @@ if exists("g:loaded_commentary") || v:version < 700
 endif
 let g:loaded_commentary = 1
 
-function! s:surroundings() abort
-  "return split(get(b:, 'commentary_format', substitute(substitute(substitute(
-  "      \ &commentstring, '^$', '%s', ''), '\S\zs%s',' %s', '') ,'%s\ze\S', '%s ', '')), '%s', 1)
-  return split(get(b:, 'commentary_format', &commentstring), '%s', 1)
+if !exists("g:space_after_commentstring")
+    let g:space_after_commentstring = 0
+endif
+
+function! s:surroundings(space_after_commentstring) abort
+  if a:space_after_commentstring == 1
+    return split(get(b:, 'commentary_format', substitute(substitute(substitute(
+          \ &commentstring, '^$', '%s', ''), '\S\zs%s',' %s', '') ,'%s\ze\S', '%s ', '')), '%s', 1)
+  else
+    return split(get(b:, 'commentary_format', &commentstring), '%s', 1)
+  endif
 endfunction
 
 function! s:strip_white_space(l,r,line) abort
@@ -35,7 +42,7 @@ function! s:go(...) abort
     let [lnum1, lnum2] = [line("'["), line("']")]
   endif
 
-  let [l, r] = s:surroundings()
+  let [l, r] = s:surroundings(g:space_after_commentstring)
   let uncomment = 2
   for lnum in range(lnum1,lnum2)
     let line = matchstr(getline(lnum),'\S.*\s\@<!')
@@ -78,7 +85,7 @@ function! s:go(...) abort
 endfunction
 
 function! s:textobject(inner) abort
-  let [l, r] = s:surroundings()
+  let [l, r] = s:surroundings(g:space_after_commentstring)
   let lnums = [line('.')+1, line('.')-2]
   for [index, dir, bound, line] in [[0, -1, 1, ''], [1, 1, line('$'), '']]
     while lnums[index] != bound && line ==# '' || !(stridx(line,l) || line[strlen(line)-strlen(r) : -1] != r)
