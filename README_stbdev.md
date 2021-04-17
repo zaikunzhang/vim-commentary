@@ -1,1 +1,1 @@
-This is the stable repository of vim-commentary.
+This is a development repository of vim-commentary.
