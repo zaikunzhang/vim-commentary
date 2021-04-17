@@ -1,7 +1,15 @@
 " commentary.vim - Comment stuff out
-" Maintainer:   Tim Pope <http://tpo.pe/>
-" Version:      1.3
+" Maintainer:   Zaikun Zhang <https://zhangzk.net>
+" Version:      1.0
 " GetLatestVimScripts: 3695 1 :AutoInstall: commentary.vim
+"
+" This is an adaptation of the vim-commentary <https://github.com/tpope/vim-commentary> by Tim Pope
+" <https://tpo.pe>.
+"
+" With this version, you can define g:space_after_commentstring to 1 or 0 to control whether
+" a space is inserted after the commentstring or not. It is the only difference.
+"
+" The version by Pope is released under the same license as Vim, so is this adapted version.
 
 if exists("g:loaded_commentary") || v:version < 700
   finish

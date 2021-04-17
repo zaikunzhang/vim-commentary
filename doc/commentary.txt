@@ -1,6 +1,7 @@
 *commentary.txt*  Comment stuff out
 
-Author:  Tim Pope <http://tpo.pe/>
+Original Author:  Tim Pope <https://tpo.pe/>
+Adapted by: Zaikun Zhang <https://zhangzk.net>
 License: Same terms as Vim itself (see |license|)
 
 Comment stuff out.  Then uncomment it later.  Relies on 'commentstring' to be
@@ -8,6 +9,9 @@ correctly set, or uses b:commentary_format if it is set.
 
 Assign b:commentary_startofline to insert comment characters at column 1
 regardless of indentation.
+
+Set g:space_after_commentstring to 1 if you want a space inserted after the
+commentstring as in the original version by Pope.
 
                                                 *gc*
 gc{motion}              Comment or uncomment lines that {motion} moves over.

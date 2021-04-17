@@ -1,30 +1,34 @@
 # commentary.vim
 
-Comment stuff out.  Use `gcc` to comment out a line (takes a count),
+
+This is an adaptation of the vim-commentary <https://github.com/tpope/vim-commentary>
+by Tim Pope <https://tpo.pe>.
+
+commentary.vim comments stuff out.  Use `gcc` to comment out a line (takes a count),
 `gc` to comment out the target of a motion (for example, `gcap` to
 comment out a paragraph), `gc` in visual mode to comment out the selection,
 and `gc` in operator pending mode to target a comment.  You can also use
 it as a command, either with a range like `:7,17Commentary`, or as part of a
 `:global` invocation like with `:g/TODO/Commentary`. That's it.
 
-I wrote this because 5 years after Vim added support for mapping an
-operator, I still couldn't find a commenting plugin that leveraged that
-feature (I overlooked
-[tcomment.vim](https://github.com/tomtom/tcomment_vim)).  Striving for
-minimalism, it weighs in at under 100 lines of code.
-
-Oh, and it uncomments, too.  The above maps actually toggle, and `gcgc`
+It uncomments, too.  The above maps actually toggle, and `gcgc`
 uncomments a set of adjacent commented lines.
+
+With this version, you can define g:space_after_commentstring to 1 or 0 to control whether
+a space is inserted after the commentstring or not. It is the only difference.
 
 ## Installation
 
-Install using your favorite package manager, or use Vim's built-in package
-support:
+Install using your favorite package manager. Two examples.
 
-    mkdir -p ~/.vim/pack/tpope/start
-    cd ~/.vim/pack/tpope/start
-    git clone https://tpope.io/vim/commentary.git
-    vim -u NONE -c "helptags commentary/doc" -c q
+> Vundle
+
+    Plugin "zaikunzhang/vim-commentary"
+
+> vim-plug
+
+    Plug "zaikunzhang/vim-commentary"
+
 
 ## FAQ
 
@@ -34,9 +38,10 @@ Relax!  You just have to adjust `'commentstring'`:
 
     autocmd FileType apache setlocal commentstring=#\ %s
 
-## Self-Promotion
 
-Like commentary.vim? Follow the repository on
+## Promotion
+
+Like commentary.vim? Follow Tim Pope's repositories on
 [GitHub](https://github.com/tpope/vim-commentary) and vote for it on
 [vim.org](http://www.vim.org/scripts/script.php?script_id=3695).  And if
 you're feeling especially charitable, follow [tpope](http://tpo.pe/) on
@@ -45,5 +50,5 @@ you're feeling especially charitable, follow [tpope](http://tpo.pe/) on
 
 ## License
 
-Copyright (c) Tim Pope.  Distributed under the same terms as Vim itself.
+Distributed under the same terms as Vim itself.
 See `:help license`.
