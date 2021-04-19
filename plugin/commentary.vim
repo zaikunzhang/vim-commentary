@@ -6,7 +6,7 @@
 " This is an adaptation of the vim-commentary <https://github.com/tpope/vim-commentary> by Tim Pope
 " <https://tpo.pe>.
 "
-" With this version, you can define b:space_after_commentstring to 1 or 0 to control whether
+" With this version, you can define g:space_after_commentstring to 1 or 0 to control whether
 " a space is inserted after the commentstring or not. It is the only difference.
 "
 " The version by Pope is released under the same license as Vim, so is this adapted version.
@@ -16,8 +16,8 @@ if exists("g:loaded_commentary") || v:version < 700
 endif
 let g:loaded_commentary = 1
 
-if !exists("b:space_after_commentstring")
-    let b:space_after_commentstring = 0
+if !exists("g:space_after_commentstring")
+    let g:space_after_commentstring = 0
 endif
 
 function! s:surroundings(space_after_commentstring) abort
@@ -50,7 +50,7 @@ function! s:go(...) abort
     let [lnum1, lnum2] = [line("'["), line("']")]
   endif
 
-  let [l, r] = s:surroundings(b:space_after_commentstring)
+  let [l, r] = s:surroundings(g:space_after_commentstring)
   let uncomment = 2
   for lnum in range(lnum1,lnum2)
     let line = matchstr(getline(lnum),'\S.*\s\@<!')
@@ -93,7 +93,7 @@ function! s:go(...) abort
 endfunction
 
 function! s:textobject(inner) abort
-  let [l, r] = s:surroundings(b:space_after_commentstring)
+  let [l, r] = s:surroundings(g:space_after_commentstring)
   let lnums = [line('.')+1, line('.')-2]
   for [index, dir, bound, line] in [[0, -1, 1, ''], [1, 1, line('$'), '']]
     while lnums[index] != bound && line ==# '' || !(stridx(line,l) || line[strlen(line)-strlen(r) : -1] != r)
