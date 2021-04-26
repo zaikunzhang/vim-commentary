@@ -1,6 +1,5 @@
 # commentary.vim
 
-
 This is an adaptation of the vim-commentary <https://github.com/tpope/vim-commentary>
 by Tim Pope <https://tpo.pe>.
 
