@@ -1,7 +1,6 @@
 " commentary.vim - Comment stuff out
 " Maintainer:   Zaikun Zhang <https://zhangzk.net>
 " Version:      1.0
-" GetLatestVimScripts: 3695 1 :AutoInstall: commentary.vim
 "
 " This is an adaptation of the vim-commentary <https://github.com/tpope/vim-commentary> by Tim Pope
 " <https://tpo.pe>.
